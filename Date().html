@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Date()</title>
+    <style>
+        .mt50{margin-top: 50px;}
+    </style>
+</head>
+<body>
+<div id="demo1">Click</div>
+<div id="demo2" class="mt50">Click</div>
+<div id="setTime" class="mt50">
+    <h6>选择你的出生日期：</h6>
+    <from>
+        <span>YEAR：</span>
+        <select id="year"></select>
+        <span>MONTH:</span>
+        <select id="month"></select>
+        <span>Date:</span>
+        <select id="day"></select>
+        <span>Hour:</span>
+        <select id="hour"></select>
+        <span>Minite:</span>
+        <select id="minite"></select>
+    </from>
+
+    <div id="birth" class="mt50">
+        <span id="defaultdate"></span>
+        <span id="yourBirthYear"></span>
+        <span id="yourBirthMonth"></span>
+        <span id="yourBirthDay"></span>
+        <span id="yourBirthHour"></span>
+        <span id="yourBirthMinite"></span>
+    </span>
+</div>
+<script>
+    window.onload=function(){
+        dateDemo();
+        dateDemo2();
+        getBirthday();
+    };
+    function dateDemo(){
+        var d = new Date();//创建一个日期对象（当前时间）
+        var txt = document.getElementById("demo1");
+        txt.innerHTML = "当前日期："+d+"<br>";
+        txt.innerHTML += "从 1970 年 1 月 1 日至今的毫秒数："+ d.getTime()+"<br>";
+        txt.innerHTML+="当前年份："+ d.getFullYear() +"<br>";
+        txt.innerHTML+="将当日的日期（根据 UTC）转换为字符串："+ d.toUTCString() + "<br>";
+        txt.innerHTML+="星期几："+ d.getDay()+"<br>";
+        //如何使用 getDay() 和数组来显示星期，而不仅仅是数字。
+        var weekDay = ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+       txt.innerHTML+="今天是"+weekDay[d.getDay()];
+    }
+
+    function dateDemo2(){
+        /*创建日期对象的方法
+        * var d = new Date();
+         var d = new Date(milliseconds);
+         var d = new Date(dateString);
+         var d = new Date(year, month, day, hours, minutes, seconds, milliseconds);
+        * */
+        var txt = document.getElementById("demo2");
+        var d1 = new Date("October 13, 1975 11:13:00");
+        var d2 = new Date("June 30,2017 00:00:00");
+
+        txt.innerHTML = "创建日期：" + d1 + "<br>" + "转换为世界时间：" + d1.toUTCString() + "<br>";
+        txt.innerHTML += "创建日期：" + d2 + "<br>" + "本地格式：" + d2.toLocaleString() + "<br>" +"本地日期格式：" + d2.toLocaleDateString() +"<br>";
+    }
+
+    function getBirthday(){
+        var date = new Date();
+        var thisYear = date.getFullYear();
+        var birthday = document.getElementById("birth");
+        var selyear = document.getElementById("year");
+        var selmonth = document.getElementById("month");
+        var selday = document.getElementById("day");
+        var selhour = document.getElementById("hour");
+        var selminite = document.getElementById("minite");
+        ///////////////////////////////////////////////////
+        //year options
+        selyear.innerHTML = "<option>" + thisYear +"</option>";
+        for(var i=0;i<50;i++){
+            thisYear = thisYear - 1;
+            selyear.innerHTML += "<option>" + thisYear  +"</option>";
+        }
+        //month options
+        var months = [1,2,3,4,5,6,7,8,9,10,11,12];
+        for(var i=1;i< months[date.getMonth()];i++){
+             selmonth.innerHTML += "<option>" + i +"</option>";
+        }
+        for(var i=months[date.getMonth()];i< 13;i++){
+            if( i == months[date.getMonth()]){
+                selmonth.innerHTML += "<option selected>" + months[date.getMonth()] +"</option>";
+            }else{
+                selmonth.innerHTML += "<option>" + i +"</option>";
+            }
+        }
+        //day options
+        for(var i=1;i< 32;i++){
+            selday.innerHTML += "<option>" + i +"</option>";
+        }
+        //hour options
+        for(var i=0;i< 24;i++){
+            selhour.innerHTML += "<option>" + i +"</option>";
+        }
+        //minite options
+        for(var i=0;i< 61;i++){
+            selminite.innerHTML += "<option>" + i +"</option>";
+        }
+        ////////////////////////////////////////////////////////
+        document.getElementById("yourBirthYear").innerHTML = date.getFullYear() + "年";
+        document.getElementById("yourBirthMonth").innerHTML = date.getMonth() + "月";
+        document.getElementById("yourBirthDay").innerHTML = date.getDate() + "日";
+        document.getElementById("yourBirthHour").innerHTML = date.getDate() + "时";
+        document.getElementById("yourBirthMinite").innerHTML = date.getDate() + "分";
+        //get birth year
+        selyear.onchange=function(){
+            date.setFullYear(selyear.value);
+            //document.getElementById("yourBirthYear").innerHTML = date.getFullYear() + "年";
+            document.getElementById("yourBirthYear").innerHTML = date.getFullYear() + "年";
+        }
+        //get birth month
+        selmonth.onchange=function(){
+            date.setMonth(selmonth.value - 2);
+            //document.getElementById("yourBirthYear").innerHTML = date.getFullYear() + "年";
+            document.getElementById("yourBirthMonth").innerHTML = date.getMonth() + "月";
+        }
+        //get birth day
+        selday.onchange=function(){
+            date.setDate(selday.value);
+            document.getElementById("yourBirthDay").innerHTML = date.getDate() + "日";
+        }
+        //get birth hour
+        selhour.onchange=function(){
+            date.setHours(selday.value);
+            document.getElementById("yourBirthHour").innerHTML = date.getDate() + "时";
+        }
+        //get birth minite
+        selminite.onchange=function(){
+            date.setMinutes(selminite.value);
+            document.getElementById("yourBirthMinite").innerHTML = date.getDate() + "分";
+        }
+
+        //document.getElementById("defaultdate").innerHTML = date.toLocaleString();
+    }
+
+</script>
+</body>
+</html>
