@@ -1,2 +1,2 @@
-# Javascript-
-javascript实例与笔记
+# Javascript入门练习与笔记
+记录学习javascript过程中的练习实例与笔记
