@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>rest参数编写一个sum()函数，接收任意个参数并返回它们的和</title>
+    <script>
+        'use strict';
+        function sum(...rest) {
+          var s=0;
+          if(rest.length===0){
+            return 0;
+          }else{
+            for(var i = 0; i<rest.length; i++) {
+              s+=rest[i];  
+            }
+            return s;
+           }
+        }
+        console.log(sum(2,3,5));
+    </script>
+</head>
+<body>
+</body>
+</html>
