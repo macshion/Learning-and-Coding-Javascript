@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>If else 语句练习：计算bmi指数</title>
+    <script>
+      'use strict';
+
+      var height = parseFloat(prompt('请输入身高(m):'));
+      var weight = parseFloat(prompt('请输入体重(kg):'));
+      height=Math.pow(height,2);
+      var bmi = weight/height;
+
+      if(bmi<18.5){
+        alert("太轻了！"+bmi);
+      }else if(bmi<25){
+        alert(bmi + "，正常。");
+      }else if(bmi<28){
+        alert(bmi + "，太重了！");
+      }else if(bmi<32){
+        alert(bmi + "，肥胖！");
+      }else{
+        alert(bmi + "，严重肥胖！");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
