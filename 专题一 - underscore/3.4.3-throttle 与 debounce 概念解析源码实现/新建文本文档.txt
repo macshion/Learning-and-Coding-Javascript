@@ -1,0 +1,27 @@
+节流
+_.throttle(function, wait, [options]) 
+
+疑问？
+1：处理函数function,是立即执行  还是等待wait毫秒之后执行？
+默认立即执行
+options.leading == false    等待wait毫秒之后去调动
+
+2: 回调函数最后一次是否要执行？
+默认会去执行
+options.trailing == false   不会执行
+
+
+防抖  
+_.debounce(function, wait, [immediate]) 
+
+
+immediate  === false   等待wait毫秒之后去调动处理函数
+
+immediate  === true  立即执行处理函数
+
+
+
+概念
+
+实操
+看源码

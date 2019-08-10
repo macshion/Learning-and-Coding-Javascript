@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*1.0.1   结合PPT 实操
+		//字符串来源  用户的输入form  =>  模板引擎  <%%> {{}}  =>   本身定义的函数  模块加载器 =>  提取模块的依赖 
+		
+		//合法的手机号码
+	    var num = "12345678945454";
+		//1: 了解需求    A:11位数字   B:11  12  13  14  15 16 17  18 19 10 (第二数字必须是0 3-9)  C: 第一个数组一定要是一个1
+	    
+		//局部匹配   全局的匹配
+		//107 86188440   = 12
+		//|  或   匹配文本的模式  (0|[3-9])  [0,3-9]  [03-9]  [0|3-9]
+		var exp = /^1[0,3-9]\d{9}$/;     //  /1\d{10}/
+		exp.test(num);  //true   false
+		
+		*/
+
+			/*
+		  1.0.2 实践应用
+		 
+		 //引包   b 依赖提取
+		function fn(){
+			var b = require(".././b.js"); 
+			var b = require(".././c.js");
+		}
+		
+		var str = fn.toString();
+		
+		//\b  一个字符的范围("") ('')    ("./b.js')  /^$/  
+		//\1  反向引用   1 第一个子表达式(可以被捕获的子表达式)相匹配的内容  
+		var exp = /\brequire\((["'])(.*)\1\)/g;   //.*    .././b.js => 资源定位功能函数
+		console.log(exp.exec(str)[2]);  //提取的依赖
+		*/
+
+			/*
+			 1.0.3 实践应用
+			 
+			 //多组合模式
+			 模板标识符
+			 <%%>  {{}}
+			 <%js逻辑代码%> 
+			 <%=变量%> 
+			 <%-特殊的字符%> 
+			*/
+
+			//配置<%%>  {{}}
+			var settings = {
+				evalute: /<%([\s\S]+?)%>/, //js逻辑代码
+				interpolate: /<%=([\s\S]+?)%>/, //变量
+				escape: /<%-([\s\S]+?)%>/ //特殊的字符
+			};
+
+
+			//模板函数    编译 渲染   "<%([\s\S]+?)%>|<%=([\s\S]+?)%>|<%-([\s\S]+?)%>"
+			function template(text) {
+				var matcher = new RegExp([
+					settings.interpolate.source,
+					settings.escape.source,
+					settings.evalute.source,
+				].join("|"), "g");
+				console.log(matcher)   //三个模式
+				
+				var source = "_p+='";   //_p   定义初始化的变量
+				var index = 0;
+				//replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。
+				text.replace(matcher, function(match, interpolate, escape, evalute, offset){
+				     source += text.slice(index,offset);  //hello:
+					 console.log(source)
+					 //重置下一次切割的起点
+					 index = offset+match.length;
+				    if(interpolate){  //变量
+					//_p+='hello:'
+					  source+="'+((_t=("+interpolate+"))===null?'':_t)+'";
+					  console.log(source)
+					}else if(escape){  //特殊字符
+						
+					}else if(evalute){ //js逻辑代码
+						
+					}
+				})
+				source+="';";
+				source = "with(obj||{}){\n"+source+"}\n"; 
+				//渲染函数    source = "with(obj||{}){....}";  
+				source="var _t,_p='';"+source+"return _p;\n";
+				console.log(source)
+				var render = new Function("obj",source);   //function(){}
+				var template = function(data){
+					return render(data);
+				}
+				return template;
+			}
+
+			//数据对象
+			var data = {
+				root: "max"
+			}
+			
+			
+			
+			var render = template("hello:<%= root %>"); //变量   hello: max    hello:
+			render(data);
+
+			
+			
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="underscore.js"></script>
+		<script>
+			//obj[prop]  !== Object[prop]
+// 			var obj = {
+// 				name: "max",
+// 				toString: null //可枚举的属性
+// 			}
+// 			 _.extend({}, object1, object2);  
+// 			
+// 			console.log(_.keys(obj))
+			
+// 			obj.toString      ===  Object.prototype.toString
+// 
+// 			//对象的检索机制
+// 			console.log(obj.toString); //obj.__proto__   == Object.prototype   ==  toString   不可枚举的属性
+// 			
+// 			//IE9>  for  in
+// 			for (var key in obj) {
+// 				console.log(key) //name 
+// 			}
+// 
+// 
+			            function Person(name){
+							this.name = name;
+						}
+                        Person.work = function(){}
+						Person.xxx = 1;
+						console.log(_.keys(false));
+						// console.log(_.extendOwn({}, obj));    //name  one   for in  + Object.keys()
+						//只会查找自身对象
+					//	console.log(_.allKeys(obj));	  //name
+			// 					
+			// 			for (var key in obj) {
+			// 				console.log(key) //name  one
+			// 			}
+			
+			//  for in  + Object.keys()    
+			
+			_.extendOwn
+			_.extend
+			_.keys
+			_.allKeys
+			
+			_.deepClone
+		</script>
+	</body>
+</html>

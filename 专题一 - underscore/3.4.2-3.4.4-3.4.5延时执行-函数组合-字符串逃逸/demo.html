@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="underscore.js"></script>
+		<script>
+// 			_.delay(function(name) { //max
+// 				console.log(this)
+// 			}, 1500, "max");
+
+			// 			A B  C   
+			// 			
+			// 			//数据    A B  C    管道(处理函数)     结果
+			// 			A  B  C
+			// 			B  C  A
+			// 			A  C  B
+			
+// 		   //compose 目标源数据    func1(data) =dataA=> func2(dataA) =dataB=> func3(dataB) => result
+			function A(data) {   //输入
+              return 2*data;   //4   //输出
+			}
+
+			function B(data) {
+			
+             return 2+data;   //2
+			}
+
+			function C(data) {   //2
+             return 2-data;   //0
+			}
+// 			
+// 			//管道
+// 			function compose(){
+// 				var len = arguments.length;
+// 				var funcs = [].slice.call(arguments, 0, len-1);    //[fn, fn, fn]
+// 				//console.log(funcs)   依次的去调用处理函数  从左到又   callback = reduce;
+// 				var data = [].slice.call(arguments, len-1);     //2
+// 				return funcs.reduce(function(memo, func){   //[fn, fn, fn]
+// 				  console.log(memo); //[2]
+// 					return func(memo);   //  A  4
+// 				},data);     //过滤 [2] => 2
+// 			}
+// 			
+// 			//处理函数    数据
+// 			var result = compose(C, B, A, 2);
+// 			console.log(result)
+
+         var welcome =  _.compose(C, B, A);  //[A, B, C]
+		 console.log(welcome(2)) ; //=>2
+		</script>
+	</body>
+</html>

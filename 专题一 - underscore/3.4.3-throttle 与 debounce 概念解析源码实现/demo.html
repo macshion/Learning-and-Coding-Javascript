@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div style="height: 3000px;"></div>
+		<script src="underscore.js"></script>
+		<script>
+			
+			//节流概念 一个处理函数 在一个时间内被大量的触发  控制它的触发频率
+			window.onscroll = _.throttle(function(){
+				console.log("hello max");
+			},1000,{
+				trailing: false
+			});
+			
+
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,15 @@
+// @mixin color($width, $height) {
+//     position: absolute;
+//     left:50%;
+//     top:50%;
+//     width:$width;
+//     height:$height;
+//     margin:(-$height / 2) 0 0 (-$width / 2);
+// }
+@mixin fontColor{
+    color: red;
+}
+@mixin width($width){
+    width: $width;
+    margin: 0 auto;
+}

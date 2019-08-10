@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="compileToFunctions.js"></script>
+		<script>
+		var ref = compileToFunctions("<div><a>{{age}}</a></div>",{
+				//自定义的配置
+			}, this);   //this === vm
+		console.log(ref.render())
+		</script>
+	</body>
+</html>

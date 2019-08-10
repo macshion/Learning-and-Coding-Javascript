@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="underscore.js"></script>
+		<script>
+			// 			//浅克隆
+			// 			var obj = {
+			// 				data:{
+			// 					name: "max"
+			// 				}
+			// 			}	
+			// 			
+			// 		//深克隆      边界 对象本身      |    原型链  __proto__.__proto.____proto__  == null
+			// 		var cloned = _.deepclone(obj);  //副本
+			// 		console.log(cloned.data === obj.data )
+			// 		
+			// 		var arr = [1,2,3,4,[3,4]];
+			// 		var arrClone =  _.deepclone(arr);    //_.map()
+			// 		console.log(arrClone === arr)
+			// 		
+			// // 	     cloned.data.count = 1;
+			// // 	  console.log(obj.data.count);     //1   浅克隆
+
+			var obj = _.pick({
+				name: 'moe',
+				age: 50,
+				userid: 'moe1'
+			}, 'name', 'age');
+			
+// 			var obj = _.pick({   //1:  collect 属性    遍历这个数组对象
+// 				name: 'moe',
+// 				age: 50,
+// 				userid: 'moe1'
+// 			}, function(value, key, object) {
+// 				return _.isString(value);
+// 			});
+// 			
+			console.log(obj)
+			
+		</script>
+	</body>
+</html>

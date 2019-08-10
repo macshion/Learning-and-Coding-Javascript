@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="underscore.js"></script>
+		<script>
+			/*
+			模板函数    模板标识符  {{ }}   <% %>
+			
+			<%= %>  插入变量
+			<%- %>  HTML转义
+			<% %>   执行任意的 JavaScript 代码
+			*/
+			var data = {
+				name: "max",
+				age:30
+			}
+			//7+<%= name %>
+			var compiled = _.template("hello: <%= name %> 年龄  <%= age %> "); //=>  解析成  hello  max
+			//数据的绑定  渲染
+			console.log(compiled(data));   //=> hello: max
+
+			
+			//with(data){"hello: <%= name %>"}      name  == data.name    解析模板函数的作用域绑定
+			//initProxy  渲染函数作用域绑定
+			
+			//字符串  扫描 切割   拼接   => 可执行的JavaScript字符串  "alert(name)"
+			//new Function()
+		</script>
+	</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box">欢迎来到网易云课堂</div>
+		<div class="box">欢迎来到网易云课堂</div>
+		<div class="box">欢迎来到网易云课堂</div>
+		<script src="jQuery.1.0.2.js"></script>
+		<script>
+			//access  复杂度   链接式调用
+			//html    div
+			
+			//内存图     闭包   作用域链
+			
+			//性能优化      文档碎片
+//             $("<div><p>max<a></a></p></div>").appendTo(".box");
+// 
+// 			//get   没有传值
+//       		console.log($(".box").text("max")); //欢迎来到网易云课堂   返回值 文本   key
+
+
+//编写         逻辑   某个对象的方法       JavaScript    运行逻辑    1： 执行规则   2:   面向对象的语言   对象   3:    原型链
+
+
+
+//              function fn(){
+// 				 var self = {
+// 					 add: function(){}
+// 				 }
+// 				 return self;
+// 			 }
+// 			 
+// 			 var self = fn();
+// 			 var object = self.add;
+// 			 object = null;   //空对象
+// 
+
+// 			//set   重置
+ //           console.log($(".box").text("max"));    // 返回值    jQuery实例对象
+
+    //        console.log($(".box").css("color", "red"));   //  属性  属性值
+
+
+
+
+// 			//set   重置   两个参数的传递
+	
+// 
+// 			//get  css值
+// 			console.log($(".box").css("color"));
+// 			//set css值  批量   设置多个样式的属性
+			console.log($(".box").css({
+				"color": "red",
+ 				 "fontSize":"17px"
+ 			}));
+
+
+// //Vue
+//           var fn = function (){
+// 			  return fn1();
+// 		  }
+// 		  
+// 		  var obj  = fn;   //缓存起来
+// 		  
+// 		  //重构
+// 		  fn = function(){
+// 			  // 编译 挂载
+// 			  obj ();
+// 		  }
+// 		  
+// 		  
+// 		  obj
+		  
+		  
+      
+		</script>
+	</body>
+</html>

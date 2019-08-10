@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.box {
+				width: 200px;
+				height: 100px;
+				color: red;
+				font-size: 18px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">欢迎来到网易云课堂</div>
+		<div class="box">欢迎来到网易云课堂</div>
+		<script src="jQuery.1.0.2.js"></script>
+		<script>
+			//console.log($(".box").css(["color", "font-size", "float"]));
+			//var box = document.getElementById("box");
+			//console.log(box.style.fontSize)   //驼峰法    font-size    = 》 fontSize 
+
+			//get  box.style      set
+			//console.log($(".box").css(["color","height"]));   //对象的形式  {color: "rgb(255, 0, 0)"}
+
+
+			//css()   access  =>   callback  回调列表
+			//console.log($(".box").css("color"));   //rgb(255, 0, 0)
+			// 			console.log($(".box").css("font-size","20px"));  //jquery 对象
+			// 			
+			// 			//"font-size"  fontSize
+			// 			//$(".box")[0].style["font-size"] = "50px";
+			// 			
+			// 			$(".box")[0].style.fontSize = 
+			// 			$(".box")[0].style["font-size"] = 
+
+			//console.log($("<div><p>max</p></div>").appendTo(".box") ); //html字符串  
+			
+			$(".box").addClass("result item")
+		</script>
+	</body>
+</html>

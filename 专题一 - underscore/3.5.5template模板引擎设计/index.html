@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		.last-item{
+			color:red;
+		}
+	</style>
+	<body>
+		<div id="box"></div>
+		<script src="underscore.js"></script>
+		<script type="text/template" id="tpl">
+		<ul class="list">
+          <%obj.forEach(function(e, i, a){%>
+           <% if (i === a.length-1)%>
+            <li class="last-item"><%=e.name%></li>
+           <% else %>
+            <li><%=e.name%></li>
+         <%})%>
+      </ul>
+  </script>
+       <script>
+			// 模拟数据
+			var data = [{
+				name: "apple"
+			}, {
+				name: "orange"
+			}, {
+				name: "peach"
+			}];
+
+			var compiled = _.template(document.getElementById("tpl").innerHTML);
+			var str = compiled(data);
+			document.querySelector("div").innerHTML = str;
+			
+			
+			//e 遍历数组成员     i 下标值  a 目标源
+		</script>
+	</body>
+</html>

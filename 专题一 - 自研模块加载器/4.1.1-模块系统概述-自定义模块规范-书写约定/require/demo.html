@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Requirejs demo</title>
+    </head>
+    <body>
+        <script src="require.js" type="text/javascrippt"></script>
+        <script>
+            require.config({
+                paths:{
+                    'a': './a',//配置模块短名称
+                    'b': './b'
+                }
+            });
+
+            require(['a','b'],function(a,b) {
+                console.log(a)
+                console.log(b)
+            })
+        </script>
+    </body>
+</html>

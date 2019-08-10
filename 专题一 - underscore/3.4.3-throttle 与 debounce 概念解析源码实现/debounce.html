@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div style="height: 3000px;"></div>
+		<script src="underscore.js"></script>
+		<script>
+			//防抖  一个处理函数 在一个时间内被大量的触发  但是只执行一次    ajax
+
+			window.onscroll = _.debounce(function() {
+				console.log("hello kaiXin")
+			}, 1000);
+			
+// 			
+// 			1 == true      隐士转换  (数据类型)   同等类型
+// 		    0 === false    不允许隐士转换
+// 			
+// 			NaN  === NaN  
+		</script>
+	</body>
+</html>

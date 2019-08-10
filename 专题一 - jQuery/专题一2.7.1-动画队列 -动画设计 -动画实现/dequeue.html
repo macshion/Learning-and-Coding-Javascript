@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="jQuery.1.0.3.js"></script>
+		<script>
+			var box = $('.box');
+			function fn(next) {    //
+				console.log(next)
+				//next  指向下一个要执行的处理函数
+				console.log("max");     //max
+				next();      //$.dequeue(box, 'max');  [处理函数2,处理函数3]
+			}
+            
+			function fn1(next) {
+				console.log("remi")
+				next();      //$.dequeue(box, 'max');
+			}
+			function fn2() {
+				console.log("杨帆")
+			}
+
+			// [入列]  
+			$.queue(box, 'max', fn);
+			$.queue(box, 'max', fn1);
+			$.queue(box, 'max', fn2);
+
+            // [出列]   callbacks =>  依次执行处理函数   dequeue  =>  一次出列只会去调用一个处理函数
+			$.dequeue(box, 'max');    //  [处理函数1,处理函数2,处理函数3]
+			$.dequeue(box, 'max');    //  [处理函数2,处理函数3]
+			$.dequeue(box, 'max');    //   [处理函数3]
+			
+			
+			//封装   [入列]   调用处理函数的呢？
+			//$().queue()
+			
+			//数据缓存  access   set   get     扩展cache缓存对象     cache扩展(注册一个) 队列的属性
+			//出列     找到队列     next  $.dequeue    next指向下一个要执行的处理函数
+
+
+		</script>
+	</body>
+</html>
