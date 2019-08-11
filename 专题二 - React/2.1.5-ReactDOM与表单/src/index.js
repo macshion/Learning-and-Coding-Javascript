@@ -4,6 +4,10 @@ import './index.css';
 import App from './demo2';
 import * as serviceWorker from './serviceWorker';
 
+// ReactDOM.render() // 挂载
+// ReactDOM.unmountComponentAtNode()// 删除清空
+// ReactDOM.findDOMNode()
+
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

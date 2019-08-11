@@ -8,11 +8,11 @@ class Action extends Component{
 			value: ''
 		}
 	}
-
 	render() {
 		return (
 			<div>
 				<input value={this.state.value} onChange={(e) => this.setState({value: e.target.value})}/>
+				{/* 2、执行伪代码 */}
 				<button onClick={() => {
 					this.props.onAdd(this.state.value)
 					this.setState({
@@ -34,7 +34,6 @@ class List extends Component{
 	}
 }
 
-
 class App extends React.Component{
 	constructor(props) {
 		super(props);
@@ -47,13 +46,23 @@ class App extends React.Component{
 			value: ''
 		}
 	}
-
-
+	//  第二种写法
+	//  功能函数定义
+	//  onAdd(){
+	// 	let {data} = this.state
+	// 	data.push({
+	// 		name,
+	// 		id: name
+	// 	})
+	// 	this.setState({
+	// 		data
+	// 	})
+	//  }
 	render() {
-
 		return (
 			<div>
 				 <Action
+				 	// 1、写出伪代码
 				    onAdd={(name) => {
 				    	let {data} = this.state
 					    data.push({
@@ -63,14 +72,14 @@ class App extends React.Component{
 					    this.setState({
 						    data
 					    })
-				    }}
+					}}
+					// 第二种写法
+					// onAdd = {this.onAdd.bind(this)} 
 				 />
-
 				 <List data={this.state.data}/>
 			</div>
 		);
 	}
 }
-
 
 export default App;
