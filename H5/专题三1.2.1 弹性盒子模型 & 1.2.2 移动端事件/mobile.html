@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ZH-cn">
+    <head>
+        <meta charset="utf-8">
+        <title>标题</title>
+        <meta name="keywords" content="关键字">
+        <meta content="width=device-width, intial-scale=1.0, maximum=1.0, user-scable=0;" name="viewport"/>
+        <style>
+            .move{
+                height: 500px;
+                background: green;
+                color: #fff;
+            }
+        </style>
+        <body>
+            <h1>移动端事件</h1>
+            <button id="touchStart">
+                touchStart
+            </button>
+            <div class="move" id="move">
+                <p id="p"></p>
+            </div>
+            <input placeholder="请输入电话" type="number"/>
+        </body>
+        <script>
+            let btn = document.getElementById("touchStart");
+            btn.addEventListener('touchstart',function(e){
+                console.log('touchstart')
+            })
+            btn.addEventListener('click',function(e){
+                console.log(e)
+            })
+            let move = document.getElementById("move");
+            let p = document.getElementById("p");
+            let i = 0;
+            let time = null;    //节流阀
+            // move.addEventListener('touchmove', function (e){
+            //     if(!time){
+            //         time = setTimeout(()=>{
+            //             p.innerHTML = e.target.tagName + "," + i++;
+            //             time = null;
+            //         },1000)
+            //     }
+               
+            // })
+            //封装一个事件节流
+            function seo(event, time){
+                let timer = null;
+                return function(){
+                    if(!timer){
+                        timer = setTimeout(()=>{
+                            event();
+                            timer = null;
+                        },time)
+                    }
+                }
+            }
+
+            function demo(){
+                console.log('123')
+            }
+
+            function demo2(){
+                console.log('ajax请求');
+            }
+            move.addEventListener("touchmove",seo(demo,1000));
+            
+            //事件防抖
+            let telInput = document.querySelector('input');
+            
+            //事件防抖
+            function antiShake(fn, wait){
+                let timeOut = null;
+                return args => {
+                    if(timeOut) clearTimeout(timeOut)
+                    timeOut = setTimeout(fn,wait)
+                }
+            }
+            telInput.addEventListener("input",antiShake(demo2,2000));
+
+
+        </script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE>
+<html lang="ZH-cn">
+    <head>
+        <meta charset="utf-8" >
+        <title>标题</title>
+        <meta content="width=device-width, intial-scale=1.0, maximum=1.0, user-scable=0;" name="viewport"/>
+    </head>
+        <style>
+            
+            *{
+                margin: 0;
+                padding: 0;
+            }
+          
+            </style>
+          <body>
+              <button>
+                点击我
+              </button>
+                <div class="demo">
+                  
+                </div>
+                <script src="./h5.js"></script>
+                <script>
+                    $("button").tap(function (e){
+                        console.log("单击事件");
+                    })
+                    $("button").longTap(function (e){
+                        console.log("长按事件");
+                    })
+                    $("button").slideLeft(function (e){
+                        console.log("左滑事件");
+                    })
+                </script>
+          </body>
+          
+</html>

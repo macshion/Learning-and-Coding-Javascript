@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Canvas tutorial</title>
+    <script type="text/javascript">
+      function draw(){
+        var canvas = document.getElementById("test");
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+            var lineargradient = ctx.createLinearGradient(0,0,150,150);
+            lineargradient.addColorStop(0,'white');
+            lineargradient.addColorStop(1,'black');
+            ctx.fillStyle = lineargradient ;
+            // ctx.fillStyle = "#ff0000";
+            ctx.fillRect(25, 25, 100, 100);//实心矩形
+            ctx.clearRect(45, 45, 60, 60);//清除矩形区域
+            ctx.strokeStyle = "rgb(0,255,0)";
+            ctx.strokeRect(50, 50, 50, 50);//空心矩形
+
+            /*参数anticlockwise为一个布尔值。为true时，是逆时针方向，否则顺时针方向。（默认顺时针）*/
+            ctx.clearRect(0, 0, 150, 150);//清除矩形区域
+            var radialgradient=ctx.createRadialGradient(75,75,0,75,75,100);
+            radialgradient.addColorStop(0,'white');
+            radialgradient.addColorStop(1,'black');
+            ctx.fillStyle = radialgradient ;
+            ctx.arc(75, 75, 50, 0, 2*Math.PI, true);
+            ctx.fill();
+
+            // ctx.clearRect(0, 0, 150, 150);//清除矩形区域
+            // ctx.beginPath();//开始路径
+            // ctx.moveTo(75, 50);//画笔移动到点75，50
+            // ctx.lineTo(100, 75);//从上个点往100，75绘制直线
+            // ctx.lineTo(45,125);//再从上个点往45，125绘制直线
+            // ctx.fill();
+        }
+      }
+    </script>
+  </head>
+  <body onload="draw();">
+    <canvas id="test" width="150" height="150">您的浏览器暂时不支持canvas</canvas>
+  </body>
+</html>

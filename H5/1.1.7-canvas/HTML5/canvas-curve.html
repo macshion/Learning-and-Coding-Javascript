@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Canvas tutorial</title>
+    <script type="text/javascript">
+      function draw(){
+        var canvas = document.getElementById("test");
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+            ctx.beginPath();
+            ctx.moveTo(0,150);//移动到开始点0,150
+            ctx.quadraticCurveTo(75,0,150,150);//控制点为75,0    结束点为150,150
+            ctx.stroke();//绘制
+
+            ctx.clearRect(0,0,150,150);//清空画布
+            ctx.beginPath();
+            ctx.moveTo(0,100);//移动到开始点0,100
+            ctx.bezierCurveTo(50,50,100,150,150,100);//控制点1为50,50    控制点二位100,150    控制点3位150
+            ctx.stroke();//绘制
+        }
+      }
+    </script>
+  </head>
+  <body onload="draw();">
+    <canvas id="test" width="150" height="150">您的浏览器暂时不支持canvas</canvas>
+  </body>
+</html>

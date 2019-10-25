@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Canvas tutorial</title>
+    <script type="text/javascript">
+      function draw(){
+        var canvas = document.getElementById("test");  
+        var context = canvas.getContext('2d');  
+        context.lineWidth = "10";  
+        context.strokeStyle = "#fe9901";  
+        context.translate(canvas.width / 2, canvas.height / 2);  
+        context.rotate( 30 / 180 * Math.PI);  
+        context.beginPath();  
+        context.moveTo(0, -180);  
+        context.lineTo(0, -200);  
+        context.stroke();  
+          
+        context.rotate( 30 / 180 * Math.PI);  
+        context.beginPath();  
+        context.moveTo(0, -140);  
+        context.lineTo(0, -160);  
+        context.stroke();  
+        context.save();  
+        context.rotate( 30 / 180 * Math.PI);  
+        context.beginPath();  
+        context.moveTo(0, -180);  
+        context.lineTo(0, -200);  
+        context.stroke();  
+        context.restore();  
+          
+        context.rotate( 30 / 180 * Math.PI);  
+        context.beginPath();  
+        context.moveTo(0, -140);  
+        context.lineTo(0, -160);  
+        context.stroke();  
+      }
+
+    </script>
+  </head>
+  <body onload="draw();">
+    <canvas id="test" width="500" height="500">您的浏览器暂时不支持canvas</canvas>
+  </body>
+</html>

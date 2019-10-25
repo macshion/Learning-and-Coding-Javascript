@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ZH-cn">
+    <head>
+        <meta charset="utf-8">
+        <title>标题</title>
+        <meta name="keywords" content="关键字">
+        <style>
+            .con{
+                height: 200px;
+                width: 100%;
+                border: 1px solid rebeccapurple;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                /* justify-content: center; */
+            }
+            .con>div{
+              width: 200px;
+              line-height: 50px;
+              height: 50px;
+              color: #ffffff;
+              background: green;
+              text-align: center; 
+              margin: auto; 
+              /* float: left; */
+              /* margin-left: calc((100%-400px)/8);
+              margin-top: 75px; */
+            }
+            /* a{
+                font-size:0px;
+                width:10px;
+                height: 1px;
+                line-height: 0;
+                overflow: hidden;
+            } */
+        </style>
+    </head>
+    <body>
+        <div class="con">
+            <div style="order:4; flex-grow: 2;">我是div1</div>
+            <div style="order:3; flex-grow: 1;background: orangered;">我是div2</div>
+            <div style="order:2; flex-grow: 2;">我是div3</div>
+            <div style="order:1; flex-grow: 1;background: orangered;">我是div4</div>
+        </div>
+    </body>
+</html>
