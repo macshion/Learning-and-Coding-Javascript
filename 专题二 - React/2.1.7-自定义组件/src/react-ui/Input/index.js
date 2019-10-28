@@ -34,7 +34,6 @@ class Input extends Component{
 		}
 	}
 
-
 	render() {
 		const {
 			focus
@@ -99,7 +98,6 @@ class Input extends Component{
 	}
 
 }
-
 
 export default Input
 

@@ -15,12 +15,12 @@ registerServiceWorker();
 //
 // let str : string = 'a'
 // let num : number = 2
-//
+
 // interface IPerson {
 //   name: string;
 //   age: number;
 // }
-//
+
 // let personList : Array<IPerson> = [
 //   {
 //     name: 'ryan',
@@ -35,7 +35,7 @@ registerServiceWorker();
 // interface ISumInterface {
 //   (x:number,y:number): number
 // }
-//
+
 // function sum(x: number,y: number){
 //   return x + y
 // }
@@ -43,19 +43,19 @@ registerServiceWorker();
 // abstract class Animal {
 //   public name:string
 //   public age:number
-//
+
 //   public constructor(name:string,age:number) {
 //     this.name = name
 //     this.age = age
 //   }
 // }
-//
+
 // class Cat extends Animal {
 //   public sayHi(): void{
 //     console.log('hello')
 //   }
 // }
-//
+
 // let cat = new Cat('ryan',30)
 // console.log(cat)
 //

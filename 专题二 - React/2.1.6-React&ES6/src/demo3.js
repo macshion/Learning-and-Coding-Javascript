@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 
-import inp from './input'
-
 class LoadingComponent extends React.Component{
 	constructor(props) {
 		super(props);
@@ -10,14 +8,12 @@ class LoadingComponent extends React.Component{
 			loading: false
 		}
 	}
-
 	render() {
 		const {
 			loading
 		} = this.state
 		return (
 			<div>
-
 				{loading ? 'loading....' : ''}
 			</div>
 		);
@@ -34,7 +30,6 @@ class LoadingComponent extends React.Component{
 	}
 }
 
-
 class App extends LoadingComponent{
 	render() {
 		return (
@@ -44,7 +39,6 @@ class App extends LoadingComponent{
 			</div>
 		);
 	}
-
 	componentDidMount() {
 		this.showLoading()
 		setTimeout(() => {

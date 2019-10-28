@@ -66,7 +66,6 @@ class  App extends React.Component{
 						{title: '性别', dataIndex:"sex",key: 'sex'},
 					]}
 					dataSource={dataSource}
-
 				/>
 			</div>
 		);

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
-
 import inp from './input'
 
 class LogComponent extends React.Component{
@@ -8,7 +7,6 @@ class LogComponent extends React.Component{
 		console.log('app','unmount')
 	}
 }
-
 
 class App extends LogComponent{
 	render() {
@@ -19,6 +17,5 @@ class App extends LogComponent{
 		);
 	}
 }
-
 
 export default App;

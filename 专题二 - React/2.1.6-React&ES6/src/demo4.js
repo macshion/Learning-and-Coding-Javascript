@@ -50,7 +50,6 @@ class App extends React.Component{
 	componentDidMount() {
 		this.showLoading()
 	}
-
 }
 
 export default App;
