@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([["app~app2"],{"./src/mode1.js":function(o,s){o.exports={a:"this mode1"}},"./src/modulea.js":function(o,s,n){"use strict";(function(o){n("./src/mode1.js");o.exports=function(){console.log("a")}}).call(this,n("../../../../../../usr/local/lib/node_modules/webpack/buildin/harmony-module.js")(o))}}]);
